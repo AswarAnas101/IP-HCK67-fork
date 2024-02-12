@@ -50,6 +50,7 @@ class ControllerTransaction {
 
       res.json({ message: "Transaction created", transactionToken, orderId });
     } catch (error) {
+      console.log(error)
       next(error);
     }
   }

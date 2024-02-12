@@ -1,6 +1,25 @@
 const { Game, Transaction } = require("../models");
 
 class ControllerGame {
+  static async myGame(req, res, next) {
+    try {
+      console.log(req.user.id);
+      const data = await Transaction.findAll({
+        where: { userId: +req.user.id },
+        include: [
+          {
+            model: Game,
+          },
+        ],
+      });
+      console.log(data);
+      res.json(data);
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
+
   static async game(req, res, next) {
     try {
       let { sortBy, filterBy } = req.query;
@@ -28,6 +47,7 @@ class ControllerGame {
 
       res.status(200).json(games.rows);
     } catch (error) {
+      console.log(error);
       next(error);
     }
   }
@@ -42,24 +62,7 @@ class ControllerGame {
 
       res.status(200).json(games);
     } catch (error) {
-      next(error);
-    }
-  }
-
-  static async myGame(req, res, next) {
-    try {
-      console.log(req.user.id);
-      const data = await Transaction.findAll({
-        where: { userId: +req.user.id },
-        include: [
-          {
-            model: Game
-          },
-        ],
-      });
-      console.log(data);
-      res.json(data);
-    } catch (error) {
+      console.log(error);
       next(error);
     }
   }

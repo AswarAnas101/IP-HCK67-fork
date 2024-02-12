@@ -75,7 +75,6 @@ class ControllerUser {
         hooks : false
       });
 
-
       const accessToken = signToken({ id: user.id, email: user.email });
 
       return res.status(200).json({
