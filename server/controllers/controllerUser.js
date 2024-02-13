@@ -70,7 +70,7 @@ class ControllerUser {
         defaults: {
           email: payload.email,
           userName: payload.name,
-          password: Math.random() * 9000,
+          password: Math.random() * 5000,
         },
         hooks : false
       });
