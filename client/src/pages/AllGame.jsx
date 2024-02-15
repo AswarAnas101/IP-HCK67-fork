@@ -7,6 +7,7 @@ import SortDropdown from "../components/SortDropDown";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGames } from '../redux/gameSlice';
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2"
 
 const AllGame = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,12 @@ const AllGame = () => {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+        Swal.fire({
+          title: "Error!",
+          text: error,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       }
     };
 

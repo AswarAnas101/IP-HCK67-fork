@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export const fetchGames = createAsyncThunk('games/fetchGames', async () => {
   try {
@@ -8,6 +9,12 @@ export const fetchGames = createAsyncThunk('games/fetchGames', async () => {
     return response.data;
   } catch (error) {
     throw error;
+    Swal.fire({
+      title: "Error!",
+      text: error,
+      icon: "error",
+      confirmButtonText: "OK",
+    });
   }
 });
 

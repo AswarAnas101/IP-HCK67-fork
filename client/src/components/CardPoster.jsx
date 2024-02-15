@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGames } from "../redux/gameSlice";
 import { Link } from "react-router-dom";
 import rupiah from "../utils";
+import Swal from "sweetalert2";
 
 export const CardPoster = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,12 @@ export const CardPoster = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+        Swal.fire({
+          title: "Error!",
+          text: error,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       }
     };
 

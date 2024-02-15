@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Swal from "sweetalert2"
 
 export const Register = () => {
   const [register, setRegister] = useState({
@@ -44,7 +45,13 @@ export const Register = () => {
       navigate("/login");
     } catch (error) {
         console.log(error);
-        console.log(error.response.data.message);
+      console.log(error.response.data.message);
+      Swal.fire({
+        title: "Error!",
+        text: error,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 

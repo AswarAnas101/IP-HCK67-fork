@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGameById } from "../redux/gameByIdSlice";
 import rupiah from "../utils";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import Swal from "sweetalert2"
 
 export const GameId = () => {
   const { id } = useParams();
@@ -48,7 +49,14 @@ export const GameId = () => {
 
         setGames(response.data)
     } catch (error) {
-        console.log(error);
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: error,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      
     }
   }
 
@@ -81,6 +89,12 @@ export const GameId = () => {
       })
     } catch (error) {
       console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: error,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   }
 
@@ -96,9 +110,6 @@ export const GameId = () => {
         <div className="rLine"></div>
         <p className="rmaintitle">{games.name}</p>
         <div className="roverviewDiv">
-          <p className="roverview">Overview</p>
-          <p className="rrgap">Add Ons</p>
-          <p className="rrgap">Achievements</p>
         </div>
         <div className="rmainDiv">
           <div className="rleftmainDiv">

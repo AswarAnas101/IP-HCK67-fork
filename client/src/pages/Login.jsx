@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Swal from "sweetalert2";
 
 export const Login = () => {
   // const [login, setLogin] = useState({
@@ -143,6 +144,12 @@ export const Login = () => {
     } catch (error) {
       console.log(error, "loginpage jsx >>>>>>>>>>>>>>>>");
       throw error;
+      Swal.fire({
+        title: "Error!",
+        text: error,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 
@@ -166,6 +173,12 @@ export const Login = () => {
       navigate("/");
     } catch (error) {
       console.log(error, "login google");
+      Swal.fire({
+        title: "Error!",
+        text: error,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   }
 

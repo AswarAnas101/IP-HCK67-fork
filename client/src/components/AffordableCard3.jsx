@@ -3,6 +3,7 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGames } from "../redux/gameSlice";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AffordableCard3 = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,12 @@ const AffordableCard3 = () => {
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+        Swal.fire({
+          title: "Error!",
+          text: error,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       }
     };
 

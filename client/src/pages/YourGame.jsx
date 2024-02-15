@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SingleCardMyGame from "../components/SingleCardMyGame";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const YourGame = () => {
 
@@ -19,7 +20,13 @@ const YourGame = () => {
 
         setGames(response.data)
     } catch (error) {
-        console.log(error);
+      console.log(error);
+      Swal.fire({
+        title: "Error!",
+        text: error,
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   }
 
