@@ -72,11 +72,11 @@ class ControllerUser {
           userName: payload.name,
           password: Math.random() * 5000,
         },
-        hooks : false
+        hooks: false,
       });
 
       const accessToken = signToken({ id: user.id, email: user.email });
-
+      console.log(accessToken, ">>>>>>>>>>>>>>>>>>>>>>");
       return res.status(200).json({
         accessToken,
         id: user.id || created.id,

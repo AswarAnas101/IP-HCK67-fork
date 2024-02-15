@@ -10,7 +10,7 @@ router.get("/", ControllerGame.game)
 router.get("/game", authentication, ControllerGame.myGame)
 router.post("/register", ControllerUser.register)
 router.post("/login", ControllerUser.login)
-router.post("/login/google", ControllerUser.googleLogin)
+router.post("/login-google", ControllerUser.googleLogin)
 router.get("/:id", ControllerGame.gameId)
 router.get("/payment/:id", authentication, ControllerTransaction.InitiateMidTrans)
 
