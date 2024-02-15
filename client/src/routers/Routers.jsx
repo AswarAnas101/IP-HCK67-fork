@@ -1,11 +1,11 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-import Homey from "../pages/Homey";
+// import Homey from "../pages/Homey";
 import Home from "../pages/Home";
 import AllGame from "../pages/AllGame";
-import { LoginOptions } from "../pages/LoginOption";
 import { Register } from "../pages/Register";
+import { LoginOptions } from "../pages/LoginOption";
 import { Login } from "../pages/Login";
 import { GameId } from "../pages/GameId";
 import YourGame from "../pages/YourGame";
@@ -13,7 +13,7 @@ import YourGame from "../pages/YourGame";
 const Routers = createBrowserRouter([
   {
     path: "/",
-    element: <Homey />,
+    element: <Home />,
   },
   {
     path: "/Games",

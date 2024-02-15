@@ -8,7 +8,7 @@ List of available endpoints:
 - `GET /game`
 - `POST /register`
 - `POST /login`
-- `POST /login/google`
+- `POST /login-google`
 - `GET /:id`
 - `GET /payment/:id`
 
@@ -75,7 +75,53 @@ _Response (200 - OK)_
 
 &nbsp;
 
-## 2. GET /game
+## 2. GET /:id
+
+Description:
+
+- Get gameId from database
+
+Request:
+
+- params:
+
+```json
+{
+  "id": "integer (required)"
+}
+```
+
+_Response (200 - OK)_
+
+```json
+{
+  "id": 3,
+  "name": "Portal 2",
+  "released": "2011-04-18",
+  "background_image": "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg",
+  "rating": 4.61,
+  "genre": "Shooter",
+  "imgUrl_1": "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg",
+  "imgUrl_2": "https://media.rawg.io/media/screenshots/221/221a03c11e5ff9f765d62f60d4b4cbf5.jpg",
+  "imgUrl_3": "https://media.rawg.io/media/screenshots/173/1737ff43c14f40294011a209b1012875.jpg",
+  "imgUrl_4": "https://media.rawg.io/media/screenshots/b11/b11a2ae0664f0e8a1ef2346f99df26e1.jpg",
+  "price": 520000,
+  "createdAt": "2024-01-18T20:01:27.343Z",
+  "updatedAt": "2024-01-18T20:01:27.343Z"
+}
+```
+
+_Response (404 - Not Found)_
+
+```json
+{
+  "message": "Data not found"
+}
+```
+
+&nbsp;
+
+## 3. GET /game
 
 Description:
 
@@ -189,7 +235,7 @@ _Response (404 - Not Found)_
 
 &nbsp;
 
-## 3. POST /register
+## 4. POST /register
 
 Description:
 
@@ -239,7 +285,7 @@ OR
 
 &nbsp;
 
-## 4. POST /login
+## 5. POST /login
 
 Description:
 
@@ -277,7 +323,7 @@ _Response (400 - Bad Request)_
 
 &nbsp;
 
-## 5. POST /login/google
+## 6. POST /login-google
 
 Description:
 
@@ -291,52 +337,6 @@ _Response (200 - OK)_
   "id": "integer",
   "email": "string",
   "userName": "string"
-}
-```
-
-&nbsp;
-
-## 6. GET /:id
-
-Description:
-
-- Get gameId from database
-
-Request:
-
-- params:
-
-```json
-{
-  "id": "integer (required)"
-}
-```
-
-_Response (200 - OK)_
-
-```json
-{
-  "id": 3,
-  "name": "Portal 2",
-  "released": "2011-04-18",
-  "background_image": "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg",
-  "rating": 4.61,
-  "genre": "Shooter",
-  "imgUrl_1": "https://media.rawg.io/media/games/2ba/2bac0e87cf45e5b508f227d281c9252a.jpg",
-  "imgUrl_2": "https://media.rawg.io/media/screenshots/221/221a03c11e5ff9f765d62f60d4b4cbf5.jpg",
-  "imgUrl_3": "https://media.rawg.io/media/screenshots/173/1737ff43c14f40294011a209b1012875.jpg",
-  "imgUrl_4": "https://media.rawg.io/media/screenshots/b11/b11a2ae0664f0e8a1ef2346f99df26e1.jpg",
-  "price": 520000,
-  "createdAt": "2024-01-18T20:01:27.343Z",
-  "updatedAt": "2024-01-18T20:01:27.343Z"
-}
-```
-
-_Response (404 - Not Found)_
-
-```json
-{
-  "message": "Data not found"
 }
 ```
 

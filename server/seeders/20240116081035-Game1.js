@@ -18,7 +18,7 @@ module.exports = {
         }
       )
 
-      console.log(response, "res");
+      // console.log(response, "res");
   
       const { data } = await axios(
         {
@@ -27,7 +27,7 @@ module.exports = {
         }
       )
 
-      console.log(data, "res2");
+      // console.log(data, "res2");
   
       response.data.results.map(item => {
         arr.push({
@@ -40,7 +40,7 @@ module.exports = {
           imgUrl_2 : item.short_screenshots[1].image,
           imgUrl_3 : item.short_screenshots[2].image,
           imgUrl_4 : item.short_screenshots[3].image,
-          price : Math.floor(Math.random() * (120 - 60 + 1) + 50) * 1000,
+          price : Math.floor(Math.random() * (100 - 50 + 1) + 50) * 1000,
           createdAt : new Date(),
           updatedAt : new Date()
         })
@@ -48,19 +48,19 @@ module.exports = {
 
       data.results.map(item => {
         arr.push({
-          name: item.name,
-          released: item.released,
-          background_image: item.background_image,
-          rating: item.rating,
+          name : item.name,
+          released : item.released,
+          background_image : item.background_image,
+          rating : item.rating,
           genre: item.genres[0].name,
-          imgUrl_1: item.short_screenshots[0].image,
-          imgUrl_2: item.short_screenshots[1].image,
-          imgUrl_3: item.short_screenshots[2].image,
-          imgUrl_4: item.short_screenshots[3].image,
-          price: Math.floor(Math.random() * (120 - 60 + 1) + 50) * 1000,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        });
+          imgUrl_1 : item.short_screenshots[0].image,
+          imgUrl_2 : item.short_screenshots[1].image,
+          imgUrl_3 : item.short_screenshots[2].image,
+          imgUrl_4 : item.short_screenshots[3].image,
+          price : Math.floor(Math.random() * (100 - 50 + 1) + 50) * 1000,
+          createdAt : new Date(),
+          updatedAt : new Date()
+        })
       })
     } catch (error) {
       console.log(error);

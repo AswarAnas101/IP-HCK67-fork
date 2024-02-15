@@ -5,9 +5,9 @@ const { hashing } = require('../helpers');
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Users', [{
-      userName : "user1",
-      email: 'user1@gmail.com',
-      password: hashing("user1"),
+      userName : "user",
+      email: 'user@index.co',
+      password: hashing("user"),
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
