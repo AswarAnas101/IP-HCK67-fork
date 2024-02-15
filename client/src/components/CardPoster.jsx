@@ -41,7 +41,7 @@ export const CardPoster = () => {
 
   return (
     <Box mx={"2.5%"}>
-      <Box width="90%" padding="20px" margin="auto" backgroundColor="Teal">
+      <Box width="90%" padding="20px" margin="auto" backgroundColor="Teal" borderRadius="10px" >
         <Box display="flex" gap="5">
           {games &&
             games

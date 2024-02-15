@@ -7,7 +7,7 @@
 .rmaincontainer{
     width:100%;
     /* background-color: #1c1c1c; */
-    background-color: #121212;
+    background-color: teal;
     /* margin-top: 0%; */
 }
 .rcontainer{
@@ -15,7 +15,7 @@
     width: 80%;
     margin: auto;
     /* background-color: #1c1c1c; */
-    background-color: #121212;
+    background-color: teal;
     /* margin-top:10%; */
 }
 .rLine{
@@ -83,7 +83,7 @@
 }
 .rdescriptionDiv>p{
     margin-left: 3%;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 14px;
 }
 
@@ -100,7 +100,7 @@
 .rrgf{
     font-size:14px;
     font-weight:bold;
-    color: #616161;
+    color: #ede9e9;
 }
 .rgenre, .rfeature{
     flex: 1;
@@ -133,7 +133,7 @@
     color: white;
 }
 .rdesdes{
-    color: #818181;
+    color: #fdfbfb;
     /* font-weight: bold; */
 }
 
@@ -354,7 +354,7 @@
     font-size: 14px;
     font-weight:bold;
     border-radius: 2px;
-    border: .5px solid #616161;
+    border: .5px solid #f8f1f1;
     /* background-color:#1c1c1c; */
     background-color: #121212;
     color:white;
@@ -364,7 +364,7 @@
     height: 35px;
 }
 #raddcart:hover,#raddwishlist:hover{
-    background-color:rgb(58, 57, 57);
+    background-color:rgb(255, 254, 254);
     transition:.8s;
     cursor:pointer;
 }
@@ -388,7 +388,7 @@
 }
 .rleftlight{
     font-size:14px;
-    color: #616161;
+    color: #ffffff;
     font-weight: bold;
 }
 .rrightlight{

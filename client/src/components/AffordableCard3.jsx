@@ -45,6 +45,10 @@ const AffordableCard3 = () => {
       mx={10}
       backgroundColor="Teal"
       color="white"
+      ml={"7.3%"}
+      mr={"7.3%"}
+      borderRadius="10px"
+      p={4}
     >
       <Text textAlign="center" mt={3}>
         Adventure

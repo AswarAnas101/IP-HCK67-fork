@@ -21,12 +21,7 @@ const YourGame = () => {
         setGames(response.data)
     } catch (error) {
       console.log(error);
-      Swal.fire({
-        title: "Error!",
-        text: error,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
+      
     }
   }
 

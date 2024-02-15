@@ -45,7 +45,7 @@ const AllGame = () => {
   console.log(games);
 
   return (
-    <Box bgColor={"#e9d01d"}>
+    <Box bgColor={"#3c3a9f"}>
       <Navbar></Navbar>
       <Box w={"90%"}>
         <Flex justifyContent={"center"}>

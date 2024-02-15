@@ -11,43 +11,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGameById } from "../redux/gameByIdSlice";
 import rupiah from "../utils";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import Swal from "sweetalert2"
+import Swal from "sweetalert2";
 
 export const GameId = () => {
   const { id } = useParams();
-  //   const dispatch = useDispatch();
-  //   const games = useSelector((state) => state.gameById.data);
-  //   const status = useSelector((state) => state.gameById.status);
-
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       try {
-  //         if (status === "idle") {
-  //           await dispatch(fetchGameById(id));
-  //         }
-  //       } catch (error) {
-  //         console.error("Error fetching data:", error);
-  //       }
-  //     };
-
-  //     fetchData();
-  //   }, [status, dispatch]);
-
-  //   if (status === "loading") {
-  //     return <div>Loading...</div>;
-  //   }
-
-  //   if (status === "failed") {
-  //     return <div>Error loading data</div>;
-  //   }
 
   const [games, setGames] = useState({});
 
   const fetchData = async () => {
     try {
-        const response = await axios.get(`http://localhost:3000/${id}`)
+      const response = await axios.get(`http://localhost:3000/${id}`);
 
-        setGames(response.data)
+      setGames(response.data);
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -56,37 +31,57 @@ export const GameId = () => {
         icon: "error",
         confirmButtonText: "OK",
       });
-      
     }
-  }
+  };
 
   const handleBuy = async () => {
     try {
       const { data } = await axios.get(`http://localhost:3000/payment/${id}`, {
         headers: {
-          "Authorization": `${localStorage.getItem("accessToken")}` 
+          Authorization: `${localStorage.getItem("accessToken")}`,
         },
       });
       console.log(data);
       // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
       window.snap.pay(data.transactionToken, {
-        onSuccess: function(result){
+        onSuccess: function (result) {
           /* You may add your own implementation here */
-          alert("payment success!"); console.log(result);
+          // alert("payment success!");
+          Swal.fire({
+            title: "Success",
+            text: "payment success!",
+            confirmButtonText: "OK",
+          });
+          console.log(result);
         },
-        onPending: function(result){
+        onPending: function (result) {
           /* You may add your own implementation here */
-          alert("wating your payment!"); console.log(result);
+          Swal.fire({
+            title: "Success",
+            text: "wating your payment!",
+            confirmButtonText: "OK",
+          });
+          console.log(result);
         },
-        onError: function(result){
+        onError: function (result) {
           /* You may add your own implementation here */
-          alert("payment failed!"); console.log(result);
+          // alert("payment failed!");
+          Swal.fire({
+            title: "Success",
+            text: "payment failed!",
+            confirmButtonText: "OK",
+          });
+          console.log(result);
         },
-        onClose: function(){
-          /* You may add your own implementation here */
-          alert('you closed the popup without finishing the payment');
-        }
-      })
+        onClose: function () {
+          Swal.fire({
+            title: "Success",
+            text: "you closed the popup without finishing the payment",
+            confirmButtonText: "OK",
+          });
+          // alert("you closed the popup without finishing the payment");
+        },
+      });
     } catch (error) {
       console.log(error);
       Swal.fire({
@@ -96,12 +91,11 @@ export const GameId = () => {
         confirmButtonText: "OK",
       });
     }
-  }
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [])
-  
+    fetchData();
+  }, []);
 
   return (
     <div className="rmaincontainer">
@@ -109,18 +103,20 @@ export const GameId = () => {
       <div className="rcontainer">
         <div className="rLine"></div>
         <p className="rmaintitle">{games.name}</p>
-        <div className="roverviewDiv">
-        </div>
+        <div className="roverviewDiv"></div>
         <div className="rmainDiv">
           <div className="rleftmainDiv">
             <div id="rgametrailer" className="rgamevideo">
-              <Flex mt={10}>
+              <Flex
+                mt={10}
+                backgroundColor="#43e5e5"
+                color="white"
+                ml={"7.3%"}
+                mr={"7.3%"}
+                borderRadius="10px"
+                p={4}
+              >
                 <Image src={games.background_image} maxH={304}></Image>
-                <Flex flexDirection={"column"} ml={3}>
-                  <Image src={games.imgUrl_2} m={"auto"} maxH={101}></Image>
-                  <Image src={games.imgUrl_3} m={"auto"} maxH={101}></Image>
-                  <Image src={games.imgUrl_4} m={"auto"} maxH={101}></Image>
-                </Flex>
               </Flex>
             </div>
             <div className="rdescriptionDiv">
@@ -130,30 +126,6 @@ export const GameId = () => {
                 voluptas, beatae deleniti iste inventore, consequatur
                 reprehenderit, fugit rem fuga aut mollitia animi quam!
               </p>
-            </div>
-            <div className="rgenrefeature">
-              <div className="rgenre">
-                <div className="rgfleftgap">
-                  <p className="rrgf">Genre</p>
-                  <span className="rgfdetails">
-                    <p>{games.genre}</p>
-                  </span>
-                </div>
-              </div>
-              <div className="rfeature">
-                <div className="rgfleftgap">
-                  <p className="rrgf">Features</p>
-                  <span className="rgfdetails">
-                    <p>Controller Support,</p>
-                    <p>Single Player,</p>
-                    <p>Multiplayer,</p>
-                  </span>
-                  <span className="rgfdetails">
-                    <p>Online,</p>
-                    <p>Co-op</p>
-                  </span>
-                </div>
-              </div>
             </div>
             <div className="ropenworld">
               <p className="rdestitle">{games.name}</p>
@@ -197,79 +169,15 @@ export const GameId = () => {
                 </div>
               </div>
             </div>
-
-            <p className="rspecification">Windows Specifications</p>
-            <div className="rspecificationDiv">
-              <div className="rspecDetails">
-                <div>
-                  <div>
-                    <p>Minimum</p>
-                    <span className="rrspeciSpan">
-                      <p>OS</p>
-                      <p>Windows 7 - Service Pack 1</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Processor</p>
-                      <p>Intel(R) Core(TM) i5-2500K / AMD FX-6300</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Memory</p>
-                      <p>8 GB</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Graphics</p>
-                      <p>Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Storage</p>
-                      <p>150 GB</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Others</p>
-                      <p>Sound Card: DirectX Compatible</p>
-                    </span>
-                  </div>
-                  <div>
-                    <p>Recommended</p>
-                    <span className="rrspeciSpan">
-                      <p>OS</p>
-                      <p>Windows 10 - April 2020 Update</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Processor</p>
-                      <p>Intel(R) Core(TM) i7-4770K / AMD Ryzen 5 1500x</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Memory</p>
-                      <p>16 GB</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Graphics</p>
-                      <p>Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Storage</p>
-                      <p>150 GB</p>
-                    </span>
-                    <span className="rrspeciSpan">
-                      <p>Others</p>
-                      <p>Sound Card: DirectX Compatible</p>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="rrightmainDiv">
             <div className="ralldetailprice">
-              <p className="rrbasegame">BASE GAME</p>
               <div className="rdpap">
                 <p id="rcalculation" className="rbuyprice">
                   {rupiah(games.price)}
                 </p>
               </div>
-              <p className="rsaledate">Sale ends in 4/7/2022 at 8:30 PM</p>
             </div>
             <button id="raddcart" onClick={handleBuy}>
               Buy Game

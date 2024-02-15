@@ -143,13 +143,13 @@ export const Login = () => {
 
     } catch (error) {
       console.log(error, "loginpage jsx >>>>>>>>>>>>>>>>");
-      throw error;
       Swal.fire({
         title: "Error!",
         text: error,
         icon: "error",
         confirmButtonText: "OK",
       });
+      throw error;
     }
   };
 
