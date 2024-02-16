@@ -12,11 +12,11 @@ const YourGame = () => {
 
   const fetchData = async () => {
     try {
-        const response = await axios.get(`http://localhost:3000/game`, {
+        const response = await axios.get(`https://gametropolis.site/game`, {
           headers: {
-            "Authorization": `${localStorage.getItem("accessToken")}` 
+            Authorization: `${localStorage.getItem("accessToken")}`,
           },
-        })
+        });
 
         setGames(response.data)
     } catch (error) {

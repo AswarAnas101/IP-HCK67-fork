@@ -5,7 +5,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import AllGame from "../pages/AllGame";
 import { Register } from "../pages/Register";
-import { LoginOptions } from "../pages/LoginOption";
 import { Login } from "../pages/Login";
 import { GameId } from "../pages/GameId";
 import YourGame from "../pages/YourGame";
@@ -26,10 +25,6 @@ const Routers = createBrowserRouter([
   {
     path: "/YourGame",
     element: <YourGame />,
-  },
-  {
-    path: "/LoginOption",
-    element: <LoginOptions />,
   },
   {
     path: "/Register",

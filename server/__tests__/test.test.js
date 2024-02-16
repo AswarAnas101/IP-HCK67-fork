@@ -39,7 +39,8 @@ describe('API Endpoints', () => {
     });
   });
 
-  // 2. GET /game
+  // 2. GET /game  
+
   describe('GET /game', () => {
     it('should return data transaction', async () => {
       const response = await request(app)
@@ -54,6 +55,7 @@ describe('API Endpoints', () => {
       expect(response.status).toBe(401);
     });
   });
+
 
   // 3. POST /register
   describe('POST /register', () => {
@@ -93,6 +95,21 @@ describe('API Endpoints', () => {
   });
 
   // 4. POST /login
+  describe("GET /:id", () => {
+    it("should return game details by ID", async () => {
+      const game = await Game.findOne();
+      const response = await request(app).get(`/${game.id}`);
+
+      expect(response.status).toBe(200);
+    });
+
+    it("should handle not found data by ID", async () => {
+      const response = await request(app).get("/5050");
+      expect(response.status).toBe(404);
+      expect(response.body).toEqual({ message: "Game not found" });
+    });
+  });
+
   describe('POST /login', () => {
     it('should login with valid credentials', async () => {
       const userData = {
@@ -128,18 +145,5 @@ describe('API Endpoints', () => {
     });
   });
 
-  describe('GET /:id', () => {
-    it('should return game details by ID', async () => {
-      const game = await Game.findOne();
-      const response = await request(app).get(`/${game.id}`);
-      
-      expect(response.status).toBe(200);
-    });
-
-    it('should handle not found data by ID', async () => {
-      const response = await request(app).get('/9999');
-      expect(response.status).toBe(404);
-      expect(response.body).toEqual({ message: 'Game not found' });
-    });
-  });
+  
 });

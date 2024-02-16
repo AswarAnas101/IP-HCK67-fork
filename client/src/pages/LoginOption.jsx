@@ -15,7 +15,7 @@ export const LoginOptions = () => {
     console.log(">>>>>>>>>>>>>ini response", response);
     try {
       const res = await axios({
-        url: "http://localhost:3000/login-google",
+        url: "https://gametropolis.site/login-google",
         method: "POST",
         headers: {
           google_token: response.credential,

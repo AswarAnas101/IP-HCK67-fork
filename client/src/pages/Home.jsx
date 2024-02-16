@@ -1,26 +1,28 @@
 import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 import PopularCards from '../components/PopularCards'
-import AffordableCard from '../components/AffordableCard'
-import CardPoster from '../components/CardPoster'
+import Card from '../components/Card'
+import PosterCard from "../components/PosterCard";
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import AffordableCard2 from '../components/AffordableCard2'
-import AffordableCard3 from '../components/AffordableCard3'
+import Card2 from '../components/Card2'
+import Card3 from '../components/Card3'
+import Filter from "../components/filter4"
 
 const Home = () => {
   return (
     <Box bgColor={"#f1df5c"}>
       <Navbar></Navbar>
-      {/* <Carausel></Carausel> */}
       <PopularCards></PopularCards>
 
-      <CardPoster></CardPoster>
       <Flex justifyContent={"center"}>
-        <AffordableCard3></AffordableCard3>
-        <AffordableCard2></AffordableCard2>
-        <AffordableCard></AffordableCard>
+        <Card3></Card3>
+        <Card2></Card2>
+        <Card></Card>
+        <Filter/>
+        
       </Flex>
+      <PosterCard></PosterCard>
       <Footer></Footer>
     </Box>
   );

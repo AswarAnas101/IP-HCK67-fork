@@ -11,7 +11,9 @@ import Swal from "sweetalert2"
 
 const AllGame = () => {
   const dispatch = useDispatch();
+  
   const games = useSelector((state) => state.games.data);
+
   const status = useSelector((state) => state.games.status);
 
   useEffect(() => {
@@ -32,6 +34,7 @@ const AllGame = () => {
     };
 
     fetchData();
+
   }, [status, dispatch]);
 
   if (status === 'loading') {

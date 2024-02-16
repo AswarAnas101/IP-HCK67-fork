@@ -3,6 +3,7 @@ const { Game, Transaction } = require("../models");
 class ControllerGame {
   static async myGame(req, res, next) {
     try {
+      
       console.log(req.user.id);
       const data = await Transaction.findAll({
         where: { userId: +req.user.id },
@@ -11,7 +12,8 @@ class ControllerGame {
             model: Game,
           },
         ],
-      });
+      }); 
+
       console.log(data);
       res.json(data);
     } catch (error) {

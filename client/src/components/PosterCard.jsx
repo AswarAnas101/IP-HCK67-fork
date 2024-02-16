@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import rupiah from "../utils";
 import Swal from "sweetalert2";
 
-export const CardPoster = () => {
+export const PosterCard = () => {
   const dispatch = useDispatch();
   const games = useSelector((state) => state.games.data);
   const status = useSelector((state) => state.games.status);
@@ -41,11 +41,17 @@ export const CardPoster = () => {
 
   return (
     <Box mx={"2.5%"}>
-      <Box width="90%" padding="20px" margin="auto" backgroundColor="Teal" borderRadius="10px" >
+      <Box
+        width="90%"
+        padding="20px"
+        margin="auto"
+        backgroundColor="Teal"
+        borderRadius="10px"
+      >
         <Box display="flex" gap="5">
           {games &&
             games
-              .filter((item, i) => i >= 10 && i < 12)
+              .filter((item, i) => i >= 14 && i < 16)
               .map((el) => (
                 <Box
                   key={el.id}

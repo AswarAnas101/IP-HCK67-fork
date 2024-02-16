@@ -8,12 +8,12 @@ const verifyToken = (payload) => {
 const signToken = (payload) => {
     return jwt.sign(payload, process.env.SECRET)
 }
-const compared = (password, comparePassword) => {
-    return bcrypt.compareSync(password, comparePassword);
-}
 
 const hashing = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+}
+const compared = (password, comparePassword) => {
+    return bcrypt.compareSync(password, comparePassword);
 }
 
 

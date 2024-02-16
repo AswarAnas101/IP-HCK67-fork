@@ -73,7 +73,7 @@ const PopularCards = () => {
       <Flex gap="10px" p={4}>
         {games &&
           games
-            .filter((item, i) => i >= 5 && i < 10)
+            .filter((item, i) => i >= 15 && i < 20)
             .map((el) => (
               <Box
                 key={el.id}

@@ -4,11 +4,9 @@ import Swal from 'sweetalert2';
 
 export const fetchGames = createAsyncThunk('games/fetchGames', async () => {
   try {
-    // const response = await axios.get("https://seteam.bikdev.site/");
-    const response = await axios.get("http://localhost:3000/");
+    const response = await axios.get("https://gametropolis.site/");
     return response.data;
   } catch (error) {
-    throw error;
     Swal.fire({
       title: "Error!",
       text: error,
@@ -16,6 +14,7 @@ export const fetchGames = createAsyncThunk('games/fetchGames', async () => {
       confirmButtonText: "OK",
     });
   }
+  throw error;
 });
 
 const gameSlice = createSlice({

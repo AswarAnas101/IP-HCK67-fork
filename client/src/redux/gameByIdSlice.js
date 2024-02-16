@@ -3,9 +3,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 export const fetchGameById = createAsyncThunk('games/fetchGameById', async (id) => {
-  try {
-    // const response = await axios.get(`https://seteam.bikdev.site/${id}`); 
-    const response = await axios.get(`https://localhost:3000/${id}`); 
+  try { 
+    const response = await axios.get(`https://gametropolis.site/${id}`); 
     console.log(response);
     return response.data;
   } catch (error) {

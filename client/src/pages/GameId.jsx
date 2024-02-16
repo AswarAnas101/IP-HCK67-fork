@@ -20,7 +20,7 @@ export const GameId = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/${id}`);
+      const response = await axios.get(`https://gametropolis.site/${id}`);
 
       setGames(response.data);
     } catch (error) {
@@ -36,7 +36,7 @@ export const GameId = () => {
 
   const handleBuy = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:3000/payment/${id}`, {
+      const { data } = await axios.get(`https://gametropolis.site/payment/${id}`, {
         headers: {
           Authorization: `${localStorage.getItem("accessToken")}`,
         },
@@ -161,12 +161,14 @@ export const GameId = () => {
             <div className="rfollowDiv">
               <p className="rfollow">Follow Us</p>
               <div className="rfollowicons">
+
                 <div>
                   <AiFillFacebook className="riconshover" />
                   <BsInstagram className="riconshover" />
                   <BsTwitter className="riconshover" />
                   <BsYoutube className="riconshover" />
                 </div>
+
               </div>
             </div>
           </div>
@@ -179,7 +181,11 @@ export const GameId = () => {
                 </p>
               </div>
             </div>
-            <button id="raddcart" onClick={handleBuy}>
+            <button
+              style={{ borderRadius: "20px" }}
+              id="raddcart"
+              onClick={handleBuy}
+            >
               Buy Game
             </button>
             <br />

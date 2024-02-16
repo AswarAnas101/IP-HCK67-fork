@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { SiEpicgames } from "react-icons/si";
-import {
-  Box,
-  Flex,
-  Text,
-  Input,
-  Checkbox,
-  Button,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Flex, Text, Input, Checkbox, Button, Image, } from "@chakra-ui/react";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Swal from "sweetalert2"
@@ -37,7 +29,7 @@ export const Register = () => {
 
     try {
       const { data } = await axios({
-        url: "http://localhost:3000/register",
+        url: "https://gametropolis.site/register",
         method: "POST",
         data: register,
       });

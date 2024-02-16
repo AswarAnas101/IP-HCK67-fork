@@ -6,7 +6,9 @@ import Routers from './routers/Routers';
 function App() {
   return (
     <ChakraProvider>
+
       <RouterProvider router={Routers} />
+      
     </ChakraProvider>
   )
 }

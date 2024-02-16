@@ -5,7 +5,7 @@ import { fetchGames } from "../redux/gameSlice";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const AffordableCard3 = () => {
+const Card3 = () => {
   const dispatch = useDispatch();
   const games = useSelector((state) => state.games.data);
   const status = useSelector((state) => state.games.status);
@@ -42,11 +42,8 @@ const AffordableCard3 = () => {
     <Box
       width="20%"
       padding="0px 3px"
-      mx={10}
       backgroundColor="Teal"
       color="white"
-      ml={"7.3%"}
-      mr={"7.3%"}
       borderRadius="10px"
       p={4}
     >
@@ -89,4 +86,4 @@ const AffordableCard3 = () => {
   );
 };
 
-export default AffordableCard3;
+export default Card3;
