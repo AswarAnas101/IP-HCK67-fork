@@ -13,6 +13,7 @@ const Home = () => {
   return (
     <Box bgColor={"#f1df5c"}>
       <Navbar></Navbar>
+      <h1>GAMETROPOLIS</h1>
       <PopularCards></PopularCards>
 
       <Flex justifyContent={"center"}>
